@@ -49,4 +49,16 @@ console.log(steps);
 
 /**
  * Step 2: What.
+ * 
+ * Okay I'm on to something. Size of each array is 8*x where x is number of layers away from the center
+ * center array 1x1 grid, element at index 0 (8x0) size of 1. 
+ * First outter shell 3x3 grid, 9 total elements - 1 previous element = 8 new elements. 
+ * Second outter shell 5x5 grid, 25 total elements - 9 previous = 16 new elements.
+ * third outter shell 7x7 grid, 49 total element - 25 previous = 24 new elements.
+ * fourth outter shell 9x9 grid, 81 total elements - 49 previous = 32 new elements. 
+ * fifth outter shell 11x11 grid, 121 total elements - 81 previous = 40 new elements. 
+ * nth outer shell yxy grid, p total elements - q previous = r new elements.
+ * 
+ * Okay I can build an array. How the F do I calculate corners. 
  */
+

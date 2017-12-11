@@ -11,3 +11,22 @@ for (var i = 0; i < solutionNumber.length; i++) {
 }
 
 console.log(sum);
+
+/**
+ * Part 2:
+ */
+sum = 0;
+
+/**
+ * We want to do the same, but the next digit is halfway around the array.
+ */
+let halfWay = solutionNumber.length / 2;
+for (var i = 0; i < solutionNumber.length; i++) {
+    var next = (i === solutionNumber.length - 1) ? 0 : (solutionNumber.length) + 1;
+    
+    if (solutionNumber.charAt(i) === solutionNumber.charAt(next)) {
+        sum += Number(solutionNumber.charAt(i));
+    }
+}
+
+console.log(sum);

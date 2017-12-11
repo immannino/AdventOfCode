@@ -27,3 +27,7 @@ for (var i = 0; i < checkSumArray.length; i++) {
 }
 
 console.log(checkSum);
+
+/**
+ * Part 2:
+ */
