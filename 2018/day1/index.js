@@ -1,11 +1,4 @@
-const fs = require('fs');
-
-function getTestData(filename) {
-    return new Promise((resolve, reject) => {
-        const data = fs.readFileSync(filename).toString().split("\n");
-        resolve(data);
-    });
-}
+const { getTestData } = require('../utilities');
 /**
  * Solution 1 for Day 1 of Advent of Code
  */
