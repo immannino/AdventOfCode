@@ -14,22 +14,22 @@ async function validateBoxIds(boxIds) {
         double: 0,
         triple: 0
     };
-
-    boxIds.forEach((id) => {
+    
+    for (let id of boxIds) {
         let elements = id.trim().split('');
         let occurances = {};
 
-        elements.forEach((element) => {
+        for (let element of elements) {
             if (occurances[element]) occurances[element] += 1;
             else occurances[element] = 1;
-        });
+        }
 
         let doubles = Object.values(occurances).includes(2);
         let triples = Object.values(occurances).includes(3);
 
         if (doubles) checksumMeta.double++;
         if (triples) checksumMeta.triple++;
-    });
+    }
 
     return (checksumMeta.double * checksumMeta.triple);
 }
@@ -90,10 +90,17 @@ function hasSimilar(primary, temp) {
 }
 
 (async () => {
+    console.time('Load');
     const boxIds = await getTestData('testdata.txt');
+    console.timeEnd('Load');
+
+    console.time('checksum');
     const checksum = await validateBoxIds(boxIds);
+    console.timeEnd('checksum');
     console.log(`\x1b[44m\x1b[37mWarehouse Box Validation: \x1b[4m${checksum}\x1b[0m`);
 
+    console.time('match');
     const matchingChars = await findMatchingBoxes(boxIds);
+    console.timeEnd('match');
     console.log(`\x1b[44m\x1b[37mMatching Boxes: \x1b[4m${matchingChars}\x1b[0m`);
 })();
